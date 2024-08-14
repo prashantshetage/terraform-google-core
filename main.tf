@@ -11,7 +11,7 @@ resource "google_compute_shared_vpc_service_project" "service1" {
 } */
 
 
-module "project_shared_vpc_host" {
+/* module "project_shared_vpc_host" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 15.0"
 
@@ -29,4 +29,5 @@ module "project_shared_vpc_host" {
   #     "projects/base-project-196723/regions/us-central1/subnetworks/default",
   #     "projects/base-project-196723/regions/us-central1/subnetworks/subnet-1",
   #   ]
-}
+} */
+
