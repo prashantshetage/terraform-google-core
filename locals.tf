@@ -1,10 +1,21 @@
-variable "env" {
-}
+# variable "env" {
+#   validation {
+#     condition     = length(var.env) > 3
+#     error_message = <<EOF
+#     The valie is invalid.
+#     Value must be less than 2 characters.
+#     dev = "dv"
+#     qa = "qa"
+#     vang = "vg"
+#     helix = "hl"
+#   EOF
+#   }
+# }
 
-variable "business_unit" {
-}
+/* variable "business_unit" {
+} */
 
-locals {
+/* locals {
   us_nonprod = {
     advisory = "nonprod123"
     bpg      = "nonprod456"
@@ -24,19 +35,41 @@ locals {
     # vang = "dr000"
   }
 
-}
+} */
 
 
-locals {
+/* locals {
   env           = lower(var.env)
   business_unit = lower(var.business_unit)
 
   us_nonprod_folder = contains(["vang", "helix", "nprd-pr"], local.env) ? local.env == "nprd-pr" ? lookup(local.us_nonprod, local.business_unit) : lookup(local.us_nonprod, local.env) : null
   us_prod_folder    = local.env == "prod-pr" ? lookup(local.us_prod, local.business_unit) : null
   us_dr_folder      = local.env == "prod-dr" ? lookup(local.us_dr, local.business_unit) : null
-}
+} */
 
 
-output "folder_id" {
+/* output "folder_id" {
   value = coalesce(local.us_nonprod_folder, local.us_prod_folder, local.us_dr_folder)
-}
+} */
+
+/* locals {
+  postfix_map = {
+    dev   = "dv"
+    qa    = "qa"
+    vang  = "vg"
+    helix = "hl"
+  }
+} */
+
+
+/* locals {
+  iam_memberships = flatten([
+    for membership in var.user_permissions : [
+      for member in membership.members : {
+        role       = membership.role
+        member     = member
+      }
+    ]
+  ])
+  list = { for m in local.iam_memberships : "${m.role}-${m.member}" => m }
+} */

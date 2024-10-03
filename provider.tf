@@ -1,10 +1,10 @@
 provider "google" {
-  project = "totemic-fact-431817-c3"
+  project = "prashant-test-437211"
   region  = "asia-south1"
 }
 
 
-# provider "google-beta" {
-#   project = "totemic-fact-431817-c3"
-#   region  = "asia-south1"
-# }
+provider "google-beta" {
+  project = "prashant-test-437211"
+  region  = "asia-south1"
+}
